@@ -3,7 +3,8 @@
  * Write a description of class SemiExclusivo here.
  * 
  * @author Lisandro Valenzuela
- * @version 11032002
+ * 
+ *@version 11032002
  */
 public class SemiExclusivo extends Cargo
 {
