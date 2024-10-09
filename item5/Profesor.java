@@ -59,6 +59,10 @@ public class Profesor extends Persona
         super.mostrar();
     }
 
+   public String mostrarLinea()
+   {
+      return "DNI: " +this.getDni()+ " Nombre: " + this.getNombre() + " \t Sueldo: $  "+ this.getCargo().getSalario();
+   }
 
     public void listarCargos()
     {
@@ -70,7 +74,7 @@ public class Profesor extends Persona
     
     public void agregarCargo(Cargo nuevoCargo)
     {
-        if(this.getCargos().size() < 3){
+        if(this.getCargos().size() <= 3){
             this.getCargos().add(nuevoCargo);
             
         }else{
