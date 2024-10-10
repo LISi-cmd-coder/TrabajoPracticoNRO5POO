@@ -108,6 +108,7 @@ public ArrayList <Profesor> getProfesores()
     }
 
   }
+  System.out.println("TOTAL A PAGAR:$ " + this.totalAPagar());
 }
 
 
