@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Facultad
 {
   private String nombre;
@@ -6,14 +8,14 @@ public class Facultad
   public Facultad (String p_nombre,Profesor p_profe)
   {
     this.setName(p_nombre);
-    this.setUnProfe(p_profe)
-    this.setProfesores(new ArrayList <Profesor>())
+    this.setUnProfe(p_profe);
+    this.setProfesores(new ArrayList <Profesor>());
   }
 
-    public Facultad (String p_nombre,<Profesor> p_profes)
+    public Facultad (String p_nombre,ArrayList<Profesor> p_profes)
   {
     this.setName(p_nombre);
-    this.setProfesores(p_profes)
+    this.setProfesores(p_profes);
   }
 
 private void setName(String p_nombre)
@@ -28,9 +30,9 @@ private void setUnProfe(Profesor p_profe)
 
 private void setProfesores(ArrayList <Profesor>p_profes)
 {
-    this.profesores=profes;
+    this.profesores=p_profes;
 }
-s
+
 public String getName()
 {
     return this.nombre;
@@ -49,34 +51,63 @@ public ArrayList <Profesor> getProfesores()
   {
     for(Profesor profes : this.getProfesores())
     {
-        profes.mostrarLinea();
+        System.out.println(profes.mostrarLinea());
     }
   }
+  
+  /**
+ * Calcula el total a pagar en salarios a todos los profesores de la facultad.
+ * 
+ * Este método recorre la lista de profesores de la facultad y suma los salarios 
+ * correspondientes a cada uno de los cargos que tienen asignados. Para cada 
+ * profesor, se itera sobre su lista de cargos y se obtiene el salario usando 
+ * el método getSalario(). El resultado final es la suma total de todos los 
+ * salarios, que se devuelve como un valor de tipo double.
+ * 
+ * @return El monto total a pagar en salarios a todos los profesores de la facultad.
+ * 
+ * @see Cargo/getSalario() Devuelve el salario correspondiente a un cargo
+ */
   public double totalAPagar()
   {
-    double sueldoTOTAL;
+    double sueldoTOTAL=0;
     for(Profesor profes : this.getProfesores())
     {
-        sueldoTOTAL+= profes.getSueldoBasico();
+        for(Cargo cargo : profes.getCargos())
+        {
+            sueldoTOTAL+=cargo.getSalario();
+        }
+    
     }
     return sueldoTOTAL;
   }
+  
+  
+  /**
+ * Lista los profesores y los cargos que tienen asignados en la facultad.
+ * 
+ * Este método recorre la lista de profesores de la facultad, mostrando los datos 
+ * de cada uno de ellos, así como los cargos que tienen asignados. Para cada profesor, 
+ * se llama a su método mostrar() para visualizar la información del profesor, 
+ * y luego se itera sobre su lista de cargos, llamando al método mostrarCargo() 
+ * de cada cargo para mostrar los detalles correspondientes.
+ * 
+ * Si un profesor no tiene cargos asignados, no se mostrará ningún cargo para ese profesor.
+ * 
+ * @see Profesor#mostrar() Muestra la información del profesor
+ * @see Cargo#mostrarCargo() Muestra los detalles del cargo
+ */
   public void listarProfesorCargos()
   {
-    System.out.println("***** Detalle de Profesores y cargos de Facultad:  *****"+this.getName());
+    System.out.println("***** Detalle de Profesores y cargos de Facultad:  "+this.getName()+"*****");
     for(Profesor profes : this.getProfesores())
     {
         profes.mostrar();
-        profes.listaCargos();
-
+       for(Cargo cargo: profes.getCargos())
+    {
+        cargo.mostrarCargo();
     }
 
   }
-
-
-
-
-
-
-
+  }
 }
