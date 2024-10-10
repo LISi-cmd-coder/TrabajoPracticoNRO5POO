@@ -55,29 +55,28 @@ public ArrayList <Profesor> getProfesores()
     }
   }
   
+ 
   /**
  * Calcula el total a pagar en salarios a todos los profesores de la facultad.
  * 
- * Este método recorre la lista de profesores de la facultad y suma los salarios 
- * correspondientes a cada uno de los cargos que tienen asignados. Para cada 
- * profesor, se itera sobre su lista de cargos y se obtiene el salario usando 
- * el método getSalario(). El resultado final es la suma total de todos los 
- * salarios, que se devuelve como un valor de tipo double.
+ * Este método itera sobre la lista de profesores de la facultad y llama al método 
+ * sueldoCargos() de cada profesor, el cual se encarga de calcular el sueldo total 
+ * asociado a sus cargos. El total acumulado se suma a la variable sueldoTOTAL, 
+ * que se devuelve al final.
  * 
  * @return El monto total a pagar en salarios a todos los profesores de la facultad.
  * 
- * @see Cargo/getSalario() Devuelve el salario correspondiente a un cargo
+ * @see Profesor.sueldoCargos() Método que calcula el sueldo total de los cargos 
+ *                               asignados a un profesor.
  */
+  
+  
   public double totalAPagar()
   {
     double sueldoTOTAL=0;
     for(Profesor profes : this.getProfesores())
     {
-        for(Cargo cargo : profes.getCargos())
-        {
-            sueldoTOTAL+=cargo.getSalario();
-        }
-    
+       sueldoTOTAL += profes.sueldoCargos();
     }
     return sueldoTOTAL;
   }
@@ -109,5 +108,12 @@ public ArrayList <Profesor> getProfesores()
     }
 
   }
-  }
+}
+
+
+
+
+
+
+
 }
