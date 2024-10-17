@@ -17,7 +17,7 @@ public abstract class  Alojamiento
         this.setNombre(p_nom);
         this.setPrecioBase(p_precioBase);
         this.setDiasAlquier(p_dias);
-        this.setServicios(new ArrayList<Servicios>());//SE INICIALIZA EL ARRAY IGUAL POR MAS QUE ESTE VACIO
+        this.setServicios(new ArrayList<Servicios>());//SE INICIALIZA EL ARRAY IGUAL POR MAS QUE ESTE VACIO asi las clases hijas pueden tener este array tambien sin necesidad de definirlas alli.
 
     }
 
@@ -177,11 +177,14 @@ public boolean eliminarServicio(Servicios p_Servicio)
    public void liquidar()
    {
        
-        System.out.println("Alojamiento: "+ this.getNombre());
-        System.out.println("Costo por: " + this.getDiasAlquiler() +" dias:$ " + this.costo());
-        this.listarServicios();
-
+    System.out.println("Alojamiento: " + this.getNombre());
+    System.out.println("Costo por: " + this.getDiasAlquiler() + " dias: $ " + this.costo());
+    System.out.println("Servicios: ");
+    this.listarServicios();
+    System.out.println("Costo total servicios: $ " + this.costoServicios());
+    System.out.println("Costo total (alojamiento + servicios): $ " + this.total());
+   }
    }
 
-}
+
     
