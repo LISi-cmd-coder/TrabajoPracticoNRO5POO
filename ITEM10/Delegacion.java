@@ -111,7 +111,7 @@ public class Delegacion extends Visitante
          // Recorre la lista de individuos
          for (Individuo individuo : this.getListaIndividuos()) {
              // Añadir las personas del individuo al HashSet (sin duplicados)
-             personas.addAll(individuo.listarPersonas());
+             personas.add(individuo.listarPersonas());
          }
  
          return personas; // Devuelve el HashSet con todas las personas de la delegación
