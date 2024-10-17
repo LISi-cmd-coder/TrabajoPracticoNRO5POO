@@ -101,8 +101,21 @@ public class Zoologico
       
    }
 
-   
-   
+   public void listarPorFecha(Calendar p_fecha)
+   {
+      for (Visitante visitante : this.getListaVisitante())
+      {
+         if(visitante.getfecha().compareTo(p_fecha)==0)
+         {
+            visitante.mostrar();
+         }
+      }
+   }
+
+   public HashSet<Persona> listaPersonasVisitaronElZoo()
+   {
+      
+   }
        
 
    
