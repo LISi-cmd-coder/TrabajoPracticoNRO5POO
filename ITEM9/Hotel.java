@@ -49,6 +49,7 @@ public class Hotel extends Alojamiento
     }
     
     public void liquidar() {
+        super.liquidar();
         double costoTotal = costo(this.getTipoHabitacion()); // Calcula el costo total
         System.out.println("Habitacion " + this.getTipoHabitacion() + "\nTotal: ------> $" + costoTotal);  // Formato de la liquidación
     }
