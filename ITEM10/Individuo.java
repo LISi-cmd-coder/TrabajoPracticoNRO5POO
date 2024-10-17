@@ -57,6 +57,8 @@ public class Individuo extends Visitante
     public HashSet<Persona> listarPersonas()
     {
         HashSet <Persona> personas= new HashSet<>();
+        Persona pepe= this.getPersona();
+        personas.add(pepe);
         return personas;
     }
     public void mostrar()
