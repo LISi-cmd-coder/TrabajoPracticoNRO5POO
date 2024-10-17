@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+noimport java.util.ArrayList;
 
 public class Zoologico
 {
@@ -114,7 +114,14 @@ public class Zoologico
 
    public HashSet<Persona> listaPersonasVisitaronElZoo()
    {
-      
+      HashSet<Persona> listaPersona = new HashSet<>();
+      for(Individuo unIndividuo: this.getListaVisitantes())
+      {
+          listaPersona.add(unIndividuo.listarPersona());
+
+      }
+     return lista persona;
+
    }
        
 
