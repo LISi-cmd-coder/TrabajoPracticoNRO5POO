@@ -63,6 +63,7 @@ public int contar(String p_alojamiento)
 
 public void liquidar()
 {
+    super.liquidar();
     System.out.println("Cabaña con "+this.getNroHabitaciones()+"habitaciones");
     System.out.println("TOTAL-------> $ " + this.costo());
 }
