@@ -120,7 +120,7 @@ public class Zoologico
           listaPersona.add(unIndividuo.listarPersona());
 
       }
-     return lista persona;
+     return listaPersona;
 
    }
        
