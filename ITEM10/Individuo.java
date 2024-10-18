@@ -32,23 +32,13 @@ public class Individuo extends Visitante
     {
         return super.getNombre();
     }
-
-/**
- * Lista los detalles de un visitante si coincide con la fecha de visita 
- * y el tipo de visitante especificado.
- *
- * Este método compara el tipo de visitante del objeto actual con el 
- * tipo de visitante proporcionado y verifica si la fecha de visita 
- * coincide con la fecha dada. Si ambas condiciones son verdaderas, 
- * se llama al método `mostrar()` para presentar la información del visitante.
- *
- * @param p_fecha La fecha con la que se comparará la fecha de visita.
- * @param p_visitante El tipo de visitante que se desea verificar.
- */
+    
     public void listarPorFecha(Calendar p_fecha, String p_visitante)
     {
+        
+        //me parece la forma mas sensata de comparar fechas pero el calendar solo tambien tiene hora..............
         Calendar fechaVisita= super.getFecha(); 
-        if(this.tipoVisitante().equalsIgnoreCase(p_visitante) && p_fecha.compareTo(fechaVisita)==0)
+        if(this.tipoVisitante().equalsIgnoreCase(p_visitante) && p_fecha.equals(fechaVisita))
         {
             this.mostrar();
         }
@@ -57,8 +47,6 @@ public class Individuo extends Visitante
     public HashSet<Persona> listarPersonas()
     {
         HashSet <Persona> personas= new HashSet<>();
-        Persona pepe= this.getPersona();
-        personas.add(pepe);
         return personas;
     }
     public void mostrar()

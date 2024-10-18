@@ -111,26 +111,22 @@ public class Delegacion extends Visitante
          // Recorre la lista de individuos
          for (Individuo individuo : this.getListaIndividuos()) {
              // Añadir las personas del individuo al HashSet (sin duplicados)
-             personas.add(individuo.listarPersonas());
+             personas.addAll(individuo.listarPersonas());
          }
  
          return personas; // Devuelve el HashSet con todas las personas de la delegación
      }
 
-      public boolean esMismaFecha(Calendar p_Calendar1,Calendar p_Calendar2)
-     {
-        return p_Calendar1.compareTo(p_Calendar2==0);
-     }
 
-   
-     /*otra forma mucho mas compleja de comparar dos fechas.
+
+     //otra forma mucho mas compleja de comparar dos fechas.
      public boolean esMismaFecha(Calendar p_Calendar1,Calendar p_Calendar2)
      {
          return p_Calendar1.get(Calendar.YEAR)==p_Calendar2.get(Calendar.YEAR) && 
          p_Calendar1.get(Calendar.MONTH)== p_Calendar2.get(Calendar.MONTH)
           && p_Calendar1.get(Calendar.DAY_OF_MONTH)==p_Calendar2.get(Calendar.DAY_OF_MONTH);
      };
-     */
+     
 
 
 

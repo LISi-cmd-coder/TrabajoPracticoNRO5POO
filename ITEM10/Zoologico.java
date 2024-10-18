@@ -1,4 +1,7 @@
-noimport java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Calendar;
+import java.util.ArrayList;
+import java.text.SimpleDateFormat;
 
 public class Zoologico
 {
@@ -81,7 +84,7 @@ public class Zoologico
  */
    public double recaudacion(Calendar p_fechaDesde,Calendar p_fechaHasta)
    {
-      double dinerPeriodo=0;
+      double dineroPeriodo=0;
       for(Visitante visitante :this.getListaVisitantes())
       {
             if(visitante.getFecha().after(p_fechaDesde) && visitante.getFecha().before(p_fechaHasta))
@@ -94,7 +97,7 @@ public class Zoologico
    
    public void listarTipoVisitante(Calendar p_fecha,String tipo_visitante)
    {
-      for(Visitante visitante : this.getListaVisitante())
+      for(Visitante visitante : this.getListaVisitantes())
       {
         visitante.listarPorFecha(p_fecha,tipo_visitante);
       }
@@ -103,9 +106,14 @@ public class Zoologico
 
    public void listarPorFecha(Calendar p_fecha)
    {
-      for (Visitante visitante : this.getListaVisitante())
+         // Crear un formato de fecha dd/MM/yy
+    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yy");
+    // Convertir la fecha a String en el formato deseado
+    String fechaFormateada = sdf.format(p_fecha.getTime());
+       System.out.println("PERSONSAS QUE VISITARON "+this.getNombre()+" El dia: "+ fechaFormateada);
+      for (Visitante visitante : this.getListaVisitantes())
       {
-         if(visitante.getfecha().compareTo(p_fecha)==0)
+         if(visitante.getFecha().compareTo(p_fecha)==0)
          {
             visitante.mostrar();
          }
@@ -114,13 +122,13 @@ public class Zoologico
 
    public HashSet<Persona> listaPersonasVisitaronElZoo()
    {
-      HashSet<Persona> listaPersona = new HashSet<>();
+      HashSet<Persona> listaPersonas = new HashSet<>();
       for(Visitante unIndividuo: this.getListaVisitantes())
       {
-          listaPersona.add(unIndividuo.listarPersona());
+          listaPersonas.addAll(unIndividuo.listarPersonas());
 
       }
-     return listaPersona;
+     return listaPersonas;
 
    }
        
