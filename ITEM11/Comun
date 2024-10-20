@@ -1,0 +1,87 @@
+/**
+ * Clase Comun que extiende de Etiqueta y representa una etiqueta común.
+ * Las etiquetas comunes tienen un costo fijo de $100 por unidad.
+ * 
+ * @author
+ * @version 11032002
+ */
+public class Comun extends Etiqueta {
+    private double plus; // Plus adicional por el diseño
+
+    /**
+     * Constructor de la clase Comun.
+     * 
+     * @param p_plus El costo adicional por el diseño.
+     */
+    public Comun(double p_plus) {
+        super(100); // El costo fijo de una etiqueta común es $100
+        this.setPlus(p_plus);
+    }
+
+    /**
+     * Método privado para establecer el plus por diseño.
+     * 
+     * @param p_plus Plus por diseño.
+     */
+    private void setPlus(double p_plus) {
+        this.plus = p_plus;
+    }
+
+    /**
+     * Método público para obtener el plus por diseño.
+     * 
+     * @return El valor del plus por diseño.
+     */
+    public double getPlus() {
+        return this.plus;
+    }
+
+    /**
+     * Método protegido que retorna el tipo de etiqueta.
+     * 
+     * @return El tipo de etiqueta como un String ("Comun").
+     */
+    @Override
+    protected String tipo() {
+        return "Comun";
+    }
+
+    /**
+     * Método público para calcular el precio total de las etiquetas comunes.
+     * El precio se basa en el costo fijo de $100 por unidad, el plus por diseño y
+     * un descuento que depende de la cantidad de unidades vendidas.
+     * 
+     * @param cantidad La cantidad de etiquetas solicitadas.
+     * @return El precio total después de aplicar el plus por diseño y el descuento.
+     */
+    @Override
+    public double precio(int cantidad) {
+        double precioBase = super.getCosto() * cantidad; // Costo base de las etiquetas
+        double descuento = calcularDescuento(cantidad);  // Calcula el descuento por cantidad
+        return (precioBase + plus) - descuento;
+    }
+
+    /**
+     * Método privado para calcular el descuento según la cantidad de etiquetas.
+     * 
+     * @param cantidad La cantidad de etiquetas solicitadas.
+     * @return El valor del descuento aplicado.
+     */
+    private double calcularDescuento(int cantidad) {
+        double descuento = 0.0;
+
+        // Aplicar descuento según la cantidad de etiquetas
+        if (cantidad >= 11 && cantidad <= 50) {
+            descuento = (super.getCosto() * cantidad) * 0.02; // 2% de descuento
+        } else if (cantidad >= 51 && cantidad <= 100) {
+            descuento = (super.getCosto() * cantidad) * 0.05; // 5% de descuento
+        } else if (cantidad > 100) {
+            // 5% más 1% adicional por cada 10 etiquetas por encima de 100
+            int unidadesExtra = (cantidad - 100) / 10;
+            double descuentoExtra = unidadesExtra * 0.01;
+            descuento = (super.getCosto() * cantidad) * (0.05 + descuentoExtra);
+        }
+
+        return descuento;
+    }
+}
