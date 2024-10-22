@@ -5,12 +5,15 @@ public class Pedido {
 
     // Constructor
     public Pedido() {
-        renglones = new ArrayList<>();
+        this.setRenglones(new ArrayList<Renglon>());
     }
 
     // Método para agregar renglones al pedido
     public void agregarRenglon(Renglon renglon) {
         renglones.add(renglon);
+    }
+    private    void setRenglones(ArrayList<Renglon> p_renglon){
+        this.renglones=p_renglon;
     }
 
     // Getter para obtener la lista de renglones
