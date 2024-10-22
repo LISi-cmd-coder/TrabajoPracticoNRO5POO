@@ -56,16 +56,16 @@ public class Comun extends Etiqueta {
      */
     @Override
     public double precio(int cantidad) {
-        double precioBase = super.getCosto() * cantidad; // Costo base de las etiquetas
+        double precioBase = super.getCosto() *  cantidad; // Costo base de las etiquetas
         double descuento = calcularDescuento(cantidad);  // Calcula el descuento por cantidad
-        return (precioBase + plus) - descuento;
+        return (precioBase + this.getPlus()) - descuento;
     }
 
     /**
      * Método privado para calcular el descuento según la cantidad de etiquetas.
      * 
      * @param cantidad La cantidad de etiquetas solicitadas.
-     * @return El valor del descuento aplicado.
+     * @return El valor del descuento aplicado.***
      */
     private double calcularDescuento(int cantidad) {
         double descuento = 0.0;
