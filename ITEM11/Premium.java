@@ -60,7 +60,7 @@ public class Premium extends Etiqueta {
      * - 1 color: 0% adicional.
      * - 2 colores: 5% adicional.
      * - 3 colores: 7% adicional.
-     * - Más de 3 colores: 7% + 3% por cada color adicional.
+     * - Más de 3 colores:  3% por cada color adicional.
      * 
      * @param precioBase El precio base sin adicionales.
      * @return El costo adicional calculado.
@@ -69,14 +69,14 @@ public class Premium extends Etiqueta {
         double porcentajeAdicional = 0.0;
 
         // Determinar el porcentaje de adicional según la cantidad de colores
-        if (colores == 1) {
+        if (this.getColores() == 1) {
             porcentajeAdicional = 0.0;
-        } else if (colores == 2) {
+        } else if (this.getColores() == 2) {
             porcentajeAdicional = 5.0;
-        } else if (colores == 3) {
+        } else if (this.getColores() == 3) {
             porcentajeAdicional = 7.0;
-        } else if (colores > 3) {
-            porcentajeAdicional = 7.0 + ((this.getColores() - 3) * 3.0);
+        } else if (this.getColores() > 3) {
+            porcentajeAdicional = this.getColores() * 3.0;
         }
 
         // Retorna el monto adicional basado en el porcentaje y el precio base
