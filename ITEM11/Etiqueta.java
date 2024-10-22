@@ -8,6 +8,12 @@
 public abstract class Etiqueta
 {
    private double costo;
+   
+   
+    public Etiqueta (double p_costo){
+       this.setCosto(p_costo);
+   }
+   
    public abstract  double precio(int q );
    public  String toString()
    {
@@ -15,9 +21,7 @@ public abstract class Etiqueta
    }
    protected abstract String tipo();
    
-   public Etiqueta (double p_costo){
-       this.setCosto(p_costo);
-   }
+  
    private void setCosto(double p_costo){
         this.costo=p_costo;
    }
