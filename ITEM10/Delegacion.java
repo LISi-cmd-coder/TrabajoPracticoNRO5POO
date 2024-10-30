@@ -117,14 +117,15 @@ public class Delegacion extends Visitante
          return personas; // Devuelve el HashSet con todas las personas de la delegación
      }
 
-
-
-     //otra forma mucho mas compleja de comparar dos fechas.
+      /**
+       * El metodo esMismaFecha compara dos instancias de la clase calendar para verificar si su mes y dia son iguales
+       */
+      
+   
      public boolean esMismaFecha(Calendar p_Calendar1,Calendar p_Calendar2)
      {
-         return p_Calendar1.get(Calendar.YEAR)==p_Calendar2.get(Calendar.YEAR) && 
-         p_Calendar1.get(Calendar.MONTH)== p_Calendar2.get(Calendar.MONTH)
-          && p_Calendar1.get(Calendar.DAY_OF_MONTH)==p_Calendar2.get(Calendar.DAY_OF_MONTH);
+         return  p_Calendar1.get(Calendar.MONTH)==(p_Calendar2.get(Calendar.MONTH))  
+          && p_Calendar1.get(Calendar.DAY_OF_MONTH)==(p_Calendar2.get(Calendar.DAY_OF_MONTH));
      };
      
 
